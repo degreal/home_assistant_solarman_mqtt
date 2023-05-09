@@ -1,6 +1,6 @@
 {
-  "domain": "solarman",
-  "name": "Solarman",
+  "domain": "solarmanmqtt",
+  "name": "SolarmanMQTT",
   "codeowners": ["@StephanJoubert"],
   "config_flow": true,
   "dependencies": [],
