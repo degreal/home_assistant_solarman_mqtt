@@ -54,6 +54,11 @@ class Inverter:
     def get_business_field(self, start, length, mb_fc):
         request_data = bytearray([self._mb_slaveid, mb_fc]) # Function Code
         request_data.extend(start.to_bytes(2, 'big'))
+        if mb_fc == 16:
+            registers_to_write = 1
+            bytes_to_write = 2
+            request_data.extend(registers_to_write.to_bytes(2, "big"))
+            request_data.extend(bytes_to_write.to_bytes(1, "big"))
         request_data.extend(length.to_bytes(2, 'big'))
         crc = self.modbus(request_data)
         request_data.extend(crc.to_bytes(2, 'little'))
